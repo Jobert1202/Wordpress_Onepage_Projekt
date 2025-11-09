@@ -1,0 +1,295 @@
+/*
+Theme Name: Onepage_theme
+Author: Vojtěch Vasmucius
+Version: 1.0
+Description: One Page WordPress Theme inspirovaný designem The Witcher.
+*/
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: ff-good-web-pro-condensed, sans-serif;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  height: 100vh;
+}
+
+header {
+  width: 100%;
+  height: 100px;
+  box-shadow: rgba(0,0,0,0.1) 0px 4px 12px;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.85); /* OPRAVENO: Přidáno pozadí, aby nebylo průhledné */
+  text-shadow: 0px 1px 4px #000;
+  z-index: 10;
+}
+
+header .wrapper {
+  max-width: 1300px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: space-between;
+  padding: 0 10px;
+  position: relative;
+}
+
+header .wrapper-logo {
+  width: 125px;
+  height: 80px;
+}
+
+header .wrapper-logo img {
+  width: 100%;
+  height: 100%;
+}
+
+header .wrapper-hamburger {
+  width: 50px;
+  height: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  margin-right: 20px;
+  transition: transform ease 1s;
+}
+
+header .wrapper-hamburger span {
+  transition: transform ease 1s;
+  border: 2px solid #fff;
+  box-shadow: rgba(236,228,228,0.548) 0px 4px 12px;
+}
+
+@media only screen and (min-width: 768px) {
+  header .wrapper-hamburger {
+    display: none;
+  }
+}
+
+header .wrapper .is-active {
+  transform: rotate(360deg);
+}
+
+header .wrapper .is-active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 13px);
+}
+header .wrapper .is-active span:nth-child(2) {
+  opacity: 0;
+}
+header .wrapper .is-active span:nth-child(3) {
+  transform: rotate(-45deg) translate(4px, -13px);
+}
+
+header nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(-350px);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 0;
+  box-shadow: rgba(0,0,0,0.1) 0px 4px 12px;
+  transition: transform ease 1s;
+}
+
+header nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  transition: ease 0.3s;
+}
+
+@media only screen and (min-width: 768px) {
+  header nav {
+    flex-direction: row;
+    justify-content: flex-end;
+    padding-right: 60px;
+    transform: translate(-50%, -150%);
+    max-width: 1300px;
+    background: none;
+    box-shadow: none;
+  }
+
+  header nav a:hover {
+    color: #ff2600;
+  }
+}
+
+header .is-open {
+  transform: translateX(-50%) translateY(0px);
+}
+
+section {
+  height: 100vh;
+  width: 100%;
+  scroll-snap-align: start;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 36px;
+  background-position: center;
+}
+
+/* OPRAVENO: Posunutí první sekce pod fixní header */
+#Home {
+    padding-top: 100px; 
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 36px;
+}
+
+.article {
+  background-color: rgba(0,0,0,0.63);
+  color: #fff;
+  max-width: 500px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+.home-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.home-wrapper h1 {
+  font-weight: 700;
+}
+
+/* === FOOTER SECTION === */
+.footer-section {
+  height: 100vh; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  scroll-snap-align: start;
+}
+
+.site-footer {
+  text-align: center;
+  width: 100%;
+  padding: 40px 20px;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: auto;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 16px;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-links a:hover {
+  color: #ff2600;
+}
+
+/* === RIGHT SIDE NAVIGATION === */
+.side-nav {
+  position: fixed;
+  right: 35px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.45);
+  padding: 18px 10px;
+  border-radius: 40px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+  transition: all 0.3s ease;
+}
+
+.side-nav:hover {
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.side-nav .dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+/* Tooltip */
+.side-nav .dot::after {
+  content: attr(title);
+  position: absolute;
+  right: 22px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  font-size: 13px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  opacity: 0;
+  transform: translateY(-50%) scale(0.95);
+  pointer-events: none;
+  top: 50%;
+  transition: all 0.3s ease;
+}
+
+.side-nav .dot:hover::after {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+}
+
+.side-nav .dot:hover {
+  background-color: #ff2600;
+  transform: scale(1.3);
+  box-shadow: 0 0 10px #ff2600;
+}
+
+.side-nav .dot.active {
+  background-color: #ff2600;
+  box-shadow: 0 0 14px #ff2600;
+  transform: scale(1.3);
+}
+
+@media (max-width: 768px) {
+  .side-nav {
+    display: none;
+  }
+}
+
+.side-nav .dot.active:hover {
+  background-color: #ff2600;
+  box-shadow: 0 0 14px #ff2600;
+  transform: scale(1.3);
+}
